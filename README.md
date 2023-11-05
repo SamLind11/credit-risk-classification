@@ -2,15 +2,13 @@
 
 ## Overview of Analysis
 
-The purpose of this analysis is to create a model which identifies High Risk Loans using a Logistic Regression Machine Learning.  The input data includes records of loans, detailing the loan's size and interest rate, as well as the applicant's debt to income ratio, number of accounts, derogatory marks, and more.  This training data also contains whether each loan is Healthy or High Risk.  In this data set, there are approximately 75,000 Healthy loans and 2,500 High Risk loans, meaning the target classes are highly imbalanced. 
+The purpose of this analysis is to create a machine learning model model which identifies High Risk Loans using Logistic Regression.  The input data includes records of loans, detailing the loan's size and interest rate, as well as the applicant's debt to income ratio, number of accounts, derogatory marks, and other features.  This training data also contains whether each loan is Healthy or High Risk.  In this data set, there are approximately 75,000 Healthy loans and 2,500 High Risk loans, meaning the target classes are highly imbalanced. 
 
 For this analysis, two Logistic Regression models were developed.  One was trained on a stratified subset of the data, and the other was trained on a subset whose classes were balanced using Random Oversampling.  The models were then given sets of test data and their performances were evaluated using a confusion matrix and classification report. 
 
 ## Results
 
-Using bulleted lists, describe the balanced accuracy scores and the precision and recall scores of all machine learning models.
-
-* Machine Learning Model 1:
+* Machine Learning Model 1 (stratified training data):
   * Balanced Accuracy Score: 0.94426
   * Healthy Loan Precision: 1.00
   * Healthy Loan Recall: 1.00
@@ -19,7 +17,7 @@ Using bulleted lists, describe the balanced accuracy scores and the precision an
 
 
 
-* Machine Learning Model 2:
+* Machine Learning Model 2 (training data using Random Oversampling):
   * Balanced Accuracy Score: 0.996
   * Healthy Loan Precision: 1.00
   * Healthy Loan Recall: 1.00
@@ -28,7 +26,7 @@ Using bulleted lists, describe the balanced accuracy scores and the precision an
 
 ## Summary
 
-Overall, Model 1 has very high accuracy, and is perfectly precise when identifying healthy loans.  However, of the loans flagged as High Risk, only 87% were actually High Risk.  Also, the model only correctly identified 89% of all High Risk Loans (recall) in the test set.  Depending on the average cost of a defaulted loan and our tolerance to those losses, the recall and precision values may be too high for the model to be usable.
+Overall, Model 1 has very high accuracy, and is perfectly precise when identifying healthy loans.  However, of the loans flagged as High Risk, only 87% were actually High Risk (precision).  Also, the model only correctly identified 89% of all High Risk Loans (recall) in the test set.  Depending on the average cost of a defaulted loan and our tolerance to those losses, the recall and precision values may be too high for the model to be usable.
 
 Model 2 is also able to predict Healthy Loans with near perfection.  Of its High Risk Loan determinations, only 87% were correct (precision), however it did correctly identify every High Risk Loan in the test set (recall).  This is a great improvement on our first model, as we have the same precision in identifying High Risk Loans, but are much less likely to miss a High Risk Loan.
 
